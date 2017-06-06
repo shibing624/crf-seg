@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+    <Appenders>
+        <File name="A1" fileName="logs/A1.log" append="true">
+            <PatternLayout pattern="%t %-5p %c{2} - %m%n"/>
+        </File>
+        <Console name="STDOUT" target="SYSTEM_OUT">
+            <PatternLayout pattern="%highlight{%d [%t] %-5level: %msg%n%throwable}{FATAL=red, ERROR=red, WARN=blue, INFO=green, DEBUG=green, TRACE=blue}"/>
+        </Console>
+    </Appenders>
+    <Loggers>
+        <Logger name="org.apache.log4j.xml" level="debug">
+            <AppenderRef ref="A1"/>
+        </Logger>
+        <Root level="debug">
+            <AppenderRef ref="STDOUT"/>
+        </Root>
+    </Loggers>
+</Configuration>
