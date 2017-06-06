@@ -17,4 +17,9 @@ public class Static {
      */
     public static Logger logger = LogManager.getLogger();
 
+    /**
+     * 二进制文件后缀
+     */
+    public final static String BIN_EXT = ".bin";
+
 }

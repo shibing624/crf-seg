@@ -22,6 +22,16 @@ public class Xmnlp {
          */
         public static boolean DEBUG = false;
         /**
+         * 字符类型对应表
+         */
+        public static String CharTypePath = "data/dictionary/other/CharType.dat.yes";
+
+        /**
+         * 字符正规化表（全角转半角，繁体转简体）
+         */
+        public static String CharTablePath = "data/dictionary/other/CharTable.bin.yes";
+
+        /**
          * 词频统计输出路径
          */
         public static String StatisticsResultPath = "data/result/WordFrequencyStatistics-Result.txt";
@@ -62,8 +72,8 @@ public class Xmnlp {
                     loader = Xmnlp.Config.class.getClassLoader();
                 }
                 p.load(new InputStreamReader(Static.PROPERTIES_PATH == null ?
-                    loader.getResourceAsStream("xmnlp.properties")
-                    : new FileInputStream(Static.PROPERTIES_PATH), "UTF-8"));
+                        loader.getResourceAsStream("xmnlp.properties")
+                        : new FileInputStream(Static.PROPERTIES_PATH), "UTF-8"));
                 String root = p.getProperty("root", "").replaceAll("\\\\", "/");
                 if (!root.endsWith("/")) root += "/";
                 String prePath = root;
@@ -87,7 +97,6 @@ public class Xmnlp {
                 sbInfo.append("并且编辑root=PARENT/PATHS/to/your/data\n");
                 sbInfo.append("现在Xmnlp将尝试从").append(System.getProperties().get("user.dir")).append("读取data……");
                 logger.warn("没有找到xmnlp.properties，可能会导致找不到data\n" + sbInfo);
-
             }
         }
 
