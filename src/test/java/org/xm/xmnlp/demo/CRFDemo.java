@@ -1,5 +1,7 @@
 package org.xm.xmnlp.demo;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.xm.xmnlp.Xmnlp;
 import org.xm.xmnlp.seg.CRFSegment;
 import org.xm.xmnlp.seg.Segment;
@@ -11,6 +13,10 @@ import java.util.List;
  * @author XuMing
  */
 public class CRFDemo {
+    /**
+     * 日志组件
+     */
+    private static Logger logger = LogManager.getLogger();
     public static void main(String[] args) {
         Xmnlp.Config.ShowTermNature = false;    // 关闭词性显示
         Segment segment = new CRFSegment().enableCustomDictionary(false);
@@ -33,7 +39,7 @@ public class CRFDemo {
                 };
         for (String sentence : sentenceArray) {
             List<Term> termList = segment.seg(sentence);
-            System.out.println(termList);
+            logger.info(termList);
         }
     }
 }
