@@ -11,7 +11,7 @@ public class SentencesUtilTest {
     /**
      * 日志组件
      */
-    public static Logger logger = LogManager.getLogger();
+    private static Logger logger = LogManager.getLogger();
 
     @Test
     public void toSentenceList() throws Exception {
