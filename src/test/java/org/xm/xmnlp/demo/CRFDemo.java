@@ -3,8 +3,6 @@ package org.xm.xmnlp.demo;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.xm.xmnlp.Xmnlp;
-import org.xm.xmnlp.seg.CRFSegment;
-import org.xm.xmnlp.seg.Segment;
 import org.xm.xmnlp.seg.domain.Term;
 
 import java.util.List;
@@ -17,9 +15,9 @@ public class CRFDemo {
      * 日志组件
      */
     private static Logger logger = LogManager.getLogger();
+
     public static void main(String[] args) {
         Xmnlp.Config.ShowTermNature = false;    // 关闭词性显示
-        Segment segment = new CRFSegment().enableCustomDictionary(false);
         String[] sentenceArray = new String[]
                 {
                         "nlp是由一系列模型与算法组成的Java工具包，目标是普及自然语言处理在生产环境中的应用。",
@@ -38,7 +36,7 @@ public class CRFDemo {
                         "乐视超级手机能否承载贾布斯的生态梦，这个研究生会五种语言,硕士研究生鱼片与苹果"
                 };
         for (String sentence : sentenceArray) {
-            List<Term> termList = segment.seg(sentence);
+            List<Term> termList = Xmnlp.crfSegment(sentence);
             logger.info(termList);
         }
     }

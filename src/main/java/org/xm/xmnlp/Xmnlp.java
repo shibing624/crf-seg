@@ -1,13 +1,16 @@
 package org.xm.xmnlp;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.xm.xmnlp.seg.CRFSegment;
+import org.xm.xmnlp.seg.domain.Term;
 import org.xm.xmnlp.util.Static;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
+import java.util.List;
 import java.util.Properties;
-
-import static org.xm.xmnlp.util.Static.logger;
 
 /**
  * Xmnlp:自然语言处理工具包
@@ -15,6 +18,10 @@ import static org.xm.xmnlp.util.Static.logger;
  * @author XuMing
  */
 public class Xmnlp {
+    /**
+     * 日志组件
+     */
+    private static Logger logger = LogManager.getLogger();
 
     public static final class Config {
         /**
@@ -85,18 +92,18 @@ public class Xmnlp {
                 ShowTermNature = "true".equals(p.getProperty("ShowTermNature", "true"));
                 Normalization = "true".equals(p.getProperty("Normalization", "false"));
             } catch (Exception e) {
-                StringBuffer sbInfo = new StringBuffer("make sure the xmnlp.properties is exist.");
+                StringBuilder sb = new StringBuilder("make sure the xmnlp.properties is exist.");
                 String classPath = (String) System.getProperties().get("java.class.PATHS");
                 if (classPath != null) {
                     for (String path : classPath.split(File.pathSeparator)) {
                         if (new File(path).isDirectory()) {
-                            sbInfo.append(path).append('\n');
+                            sb.append(path).append('\n');
                         }
                     }
                 }
-                sbInfo.append("并且编辑root=PARENT/PATHS/to/your/data\n");
-                sbInfo.append("现在Xmnlp将尝试从").append(System.getProperties().get("user.dir")).append("读取data……");
-                logger.warn("没有找到xmnlp.properties，可能会导致找不到data\n" + sbInfo);
+                sb.append("并且编辑root=PARENT/PATHS/to/your/data\n");
+                sb.append("现在Xmnlp将尝试从").append(System.getProperties().get("user.dir")).append("读取data……");
+                logger.warn("没有找到xmnlp.properties，可能会导致找不到data\n" + sb);
             }
         }
 
@@ -107,13 +114,13 @@ public class Xmnlp {
 
 
     /**
-     * 分词
+     * CRF分词
      *
      * @param text 文本
      * @return 切分后的单词
      */
-//    public static List<Term> segment(String text) {
-//        return CRFSegment.segment(text.toCharArray());
-//    }
+    public static List<Term> crfSegment(String text) {
+        return new CRFSegment().seg(text);
+    }
 
 }
