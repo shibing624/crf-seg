@@ -35,9 +35,7 @@ com_crashlytics_export_strings.xml
 bin/
 .DS_Store
 .data/
-data/
-org/ansj/training/
-test/org/ansj/test/*
+data/model/*
 jrat.output/*
 jrat.xml
 ._.DS_Store
