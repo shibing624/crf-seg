@@ -22,11 +22,14 @@
 System.out.println(Xmnlp.crfSegment("你好，欢迎使用CRF分词工具！"));
 `
 
-## 自定义模型
-1. 提供linux版和windows版的crf++模型生成工具，网盘下载：http://pan.baidu.com/s/1skKkTgL 。
-2. 请通过命令行参数指定CRF++生成txt格式的模型，比如：
+## 训练自定义模型
+1. 使用GenerateBMESDemo（位于test中的org.xm.xmnlp.demo下）生成自己数据的序列标注集，之后用crf++生成crf模型。
+2. 提供熟语料参考文件，可以作为格式参考，网盘下载：http://pan.baidu.com/s/1hr4UuNU 。
+3. 提供人民日报2014版标注的分词数据，网盘下载：链接：http://pan.baidu.com/s/1gfae4Zh 密码：l506 。尊重版权，传播请注明出处。
+2. 提供linux版和windows版的crf++模型生成工具，网盘下载：http://pan.baidu.com/s/1skKkTgL 。
+3. 请通过命令行参数指定CRF++生成txt格式的模型，比如：
    
-   crf_learn  -f 3 -c 4.0 template train.bmes.txt crf-simple.model -t
+   crf_learn -f 3 -c 4.0 template train.bmes.txt crf-simple.model -t
    
-   然后将生成的model.txt的路径替换到配置项CRFSegmentModelPath，首次运行后会得到相应的model.txt.bin文件；
+   然后将生成的 crf-simple.model.txt 的路径替换到配置项CRFSegmentModelPath，首次运行后会得到相应的 crf-simple.model.txt.bin 文件；
    下次加载时会直接从bin缓存加载，速度会快很多。
