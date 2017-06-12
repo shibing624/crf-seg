@@ -24,10 +24,10 @@ System.out.println(Xmnlp.crfSegment("你好，欢迎使用CRF分词工具！"));
 
 ## 训练自定义模型
 1. 使用GenerateBMESDemo（位于test中的org.xm.xmnlp.demo下）生成自己数据的序列标注集，之后用crf++生成crf模型。
-2. 提供熟语料参考文件，可以作为格式参考，网盘下载：http://pan.baidu.com/s/1hr4UuNU 。
+2. 提供熟语料参考文件以及我用GenerateBMESDemo生成的测试文件，可以作为格式参考，网盘下载：http://pan.baidu.com/s/1eStd0jg 。
 3. 提供人民日报2014版标注的分词数据，网盘下载：链接：http://pan.baidu.com/s/1gfae4Zh 密码：l506 。尊重版权，传播请注明出处。
-2. 提供linux版和windows版的crf++模型生成工具，网盘下载：http://pan.baidu.com/s/1skKkTgL 。
-3. 请通过命令行参数指定CRF++生成txt格式的模型，比如：
+4. 提供linux版和windows版的crf++模型生成工具，网盘下载：http://pan.baidu.com/s/1skKkTgL 。
+5. 请通过命令行参数指定CRF++生成txt格式的模型，比如：
    
    crf_learn -f 3 -c 4.0 template train.bmes.txt crf-simple.model -t
    
