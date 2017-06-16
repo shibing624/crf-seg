@@ -16,7 +16,7 @@ public class SentencesUtilTest {
     @Test
     public void toSentenceList() throws Exception {
         logger.error("err");
-        logger.info(SentencesUtil.toSentenceList("你叫什么？我是架构师。你呢？"));
+        logger.info(SentencesUtil.toSentenceList("你在做什么？我是一只小小鸟，我会飞。你呢？"));
     }
 
 }
