@@ -44,3 +44,5 @@ jrat.xml
 target/
 train_file/*
 /target/
+
+logs/
