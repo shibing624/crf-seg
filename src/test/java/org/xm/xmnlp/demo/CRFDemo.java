@@ -17,7 +17,7 @@ public class CRFDemo {
     private static Logger logger = LogManager.getLogger();
 
     public static void main(String[] args) {
-        Xmnlp.Config.ShowTermNature = false;    // 关闭词性显示
+        Xmnlp.Config.ShowTermNature = true;    // 关闭词性显示
         String[] sentenceArray = new String[]
                 {
                         "nlp是由一系列模型与算法组成的Java工具包，目标是普及自然语言处理在生产环境中的应用。",
@@ -33,7 +33,9 @@ public class CRFDemo {
                         "2.34米男子娶1.53米女粉丝 称夫妻生活没问题",
                         "你看过穆赫兰道吗",
                         "国办发布网络提速降费十四条指导意见 鼓励流量不清零",
-                        "乐视超级手机能否承载贾布斯的生态梦，这个研究生会五种语言,硕士研究生鱼片与苹果"
+                        "乐视超级手机能否承载贾布斯的生态梦，这个研究生会五种语言,硕士研究生鱼片与苹果",
+                        "来一段:工信部女处长每月经过下属科室都要亲口交代24口交换机等技术性器件的安装工作",
+
                 };
         for (String sentence : sentenceArray) {
             List<Term> termList = Xmnlp.crfSegment(sentence);
