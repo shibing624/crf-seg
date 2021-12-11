@@ -97,7 +97,7 @@
         <sonar-maven3-plugin.version>3.5</sonar-maven3-plugin.version>
         <slf4j-api.version>1.6.4</slf4j-api.version>
         <logback-classic.version>0.9.28</logback-classic.version>
-        <log4j.version>2.7</log4j.version>
+        <log4j.version>2.15.0</log4j.version>
         <junit.version>4.11</junit.version>
     </properties>
 
